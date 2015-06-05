@@ -1,5 +1,14 @@
 <h1>Listing Ideas</h1>
 
+<%= form_tag ideas_path, :method => 'get', :class => 'form-inline' do %>
+  <div class="form-group">
+    <%= text_field_tag :search, params[:search] %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary btn-sm", id: 'validForm', name: nil) do %>
+      <span class="glyphicon glyphicon-search"></span> Search
+    <% end %>
+  </div>
+<% end %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -28,6 +37,11 @@
   </tbody>
 </table>
 
+<p>
+  How many ideas?
+  <strong><%= @ideas.count %> of <%= Idea.all.size %></strong>
+</p>
+
 <br>
 
 <%= link_to 'New Idea', new_idea_path, class: "btn btn-primary btn-lg" %>
@@ -41,7 +55,7 @@
         <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
       <div class="modal-body">
-        <img class="modal-img" width="560" />
+        <img class="modal-img" width="100%" />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

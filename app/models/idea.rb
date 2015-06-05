@@ -9,4 +9,8 @@ class Idea < ActiveRecord::Base
     too_short: "must have at least %{count} words",
     too_long: "must have at most %{count} words"
   }
+
+  def self.search(search)
+    search.blank? ? Idea.all : where("description like ?", "%#{search}%")
+  end
 end
