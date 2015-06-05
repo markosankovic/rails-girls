@@ -15,7 +15,11 @@
       <tr>
         <td><%= idea.name %></td>
         <td><%= truncate(idea.description, length: 128) %></td>
-        <td class="text-center"><%= image_tag(idea.picture_url, :height => 80) if idea.picture.present? %></td>
+        <td class="text-center">
+          <a href="#<% idea.name %>" data-title="<%= idea.name %>" data-src="<%= idea.picture_url %>" data-toggle="modal" data-target="#ideaModal">
+            <%= image_tag(idea.picture_url, :height => 80) if idea.picture.present? %>
+          </a>
+        </td>
         <td><%= link_to 'Show', idea, class: "btn btn-default" %></td>
         <td><%= link_to 'Edit', edit_idea_path(idea), class: "btn btn-info" %></td>
         <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
@@ -27,3 +31,21 @@
 <br>
 
 <%= link_to 'New Idea', new_idea_path, class: "btn btn-primary btn-lg" %>
+
+<!-- Idea Modal -->
+<div class="modal fade" id="ideaModal" tabindex="-1" role="dialog" aria-labelledby="ideaModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+        <img class="modal-img" width="560" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

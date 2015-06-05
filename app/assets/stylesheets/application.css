@@ -19,6 +19,6 @@
  table, td, th { vertical-align: middle; border: none; }
  th { border-bottom: 1px solid #DDD; }
  h1 { font-family: 'Indie Flower', cursive; color: #ee1c25; }
- footer { font-size: 1.2em;}
+ footer { color: #AAA;}
  .idea-label { color: black; }
  #error_explanation { color: #ee1c25; }
