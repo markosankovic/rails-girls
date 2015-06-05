@@ -13,7 +13,12 @@
  *= require_tree .
  *= require_self
  */
- body { padding-top: 100px; }
+ html { min-height: 100%; }
+ body { padding-top: 100px; background-image: url('Rails-Girl-on-bike.png'); background-repeat: no-repeat; background-position: right bottom; }
  footer { margin-top: 100px; }
  table, td, th { vertical-align: middle; border: none; }
  th { border-bottom: 1px solid #DDD; }
+ h1 { font-family: 'Indie Flower', cursive; color: #ee1c25; }
+ footer { font-size: 1.2em;}
+ .idea-label { color: black; }
+ #error_explanation { color: #ee1c25; }

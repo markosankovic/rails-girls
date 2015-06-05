@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Railsgirls</title>
+  <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap.css">
   <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap-theme.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -22,20 +23,23 @@
         <a class="navbar-brand" href="/">The Idea app</a>
       </div>
       <div class="collapse navbar-collapse">
+
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/ideas">Ideas</a></li>
+          <li <% if current_page? controller: "ideas", action: "index" %>class="active"<% end %>><%= link_to "My Ideas", ideas_path %></li>
+          <li <% if current_page? controller: "pages", action: "info" %>class="active"<% end %>><%= link_to "I'm a super girl!", pages_info_path %></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <div class="container">
+    <%= render partial: "shared/flash_messages", flash: flash %>
     <%= yield %>
   </div>
 
   <footer>
     <div class="container">
-      Rails Girls 2015
+      Rails Girls 2015, Belgrade
     </div>
   </footer>
   <script src="//railsgirls.com/assets/bootstrap.js"></script>
