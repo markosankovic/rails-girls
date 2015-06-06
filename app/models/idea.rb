@@ -13,4 +13,6 @@ class Idea < ActiveRecord::Base
   def self.search(search)
     search.blank? ? Idea.all : where("description like ?", "%#{search}%")
   end
+
+  has_many :comments
 end
