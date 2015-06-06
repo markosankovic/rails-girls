@@ -17,7 +17,7 @@
         <td><%= truncate(idea.description, length: 128) %></td>
         <td class="text-center">
           <a href="#<% idea.name %>" data-title="<%= idea.name %>" data-src="<%= idea.picture_url %>" data-toggle="modal" data-target="#ideaModal">
-            <%= image_tag(idea.picture_url, :height => 80) if idea.picture.present? %>
+            <%= image_tag(idea.picture_url(:thumb), :height => 50) if idea.picture.present? %>
           </a>
         </td>
         <td><%= link_to 'Show', idea, class: "btn btn-default" %></td>
